@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_mainPage"
+            android:icon="@drawable/main_page_icon"
+            android:title="@string/title_activity_main_page"/>
+        <item
+            android:id="@+id/nav_cart"
+            android:icon="@drawable/shopp_cart_icon"
+            android:title="@string/ShopCart" />
+        <item
+            android:id="@+id/nav_groups"
+            android:icon="@drawable/group_icon"
+            android:title="@string/Groups"
+
+            />
+    </group>
+
+    <item android:title="">
+        <menu>
+            <item
+                android:id="@+id/nav_search"
+                android:title="@string/search"
+                app:actionViewClass="android.widget.SearchView" />
+        </menu>
+    </item>
+
+</menu>
