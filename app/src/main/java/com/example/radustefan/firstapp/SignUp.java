@@ -3,6 +3,7 @@ package com.example.radustefan.firstapp;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
@@ -76,8 +77,12 @@ public class SignUp extends AppCompatActivity {
         String pass = password.getText().toString();
         String mail = email.getText().toString();
 
+        final AppDatabase db = AppDatabase.getDatabaseInstance(getApplicationContext());
+
         // TODO : ADD AND CHECK
         if (!uname.isEmpty() && !pass.isEmpty() && !mail.isEmpty()){
+            Log.d("Test","To sign up !!! ");
+            db.userDao().addUser(new User(uname,pass,mail));
             startActivity(new Intent(SignUp.this, Login.class));
         }
     }

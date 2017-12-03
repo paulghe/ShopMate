@@ -3,6 +3,7 @@ package com.example.radustefan.firstapp;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
@@ -64,8 +65,12 @@ public class Login extends AppCompatActivity {
         String uname = username.getText().toString();
         String pass = password.getText().toString();
 
+        final AppDatabase db = AppDatabase.getDatabaseInstance(getApplicationContext());
+
+        int result =db.userDao().verifyUser(uname,pass);
+        Log.d("TestDB", String.valueOf(result));
         // TODO : CHECK ACCOUNT
-        if (uname.equals("admin") && pass.equals("admin")){
+        if (db.userDao().verifyUser(uname,pass) != 0){
             startActivity(new Intent(Login.this, mainPage.class));
         }else {
             Toast.makeText(getApplicationContext(), "Invalid username or password.", Toast.LENGTH_LONG).show();
