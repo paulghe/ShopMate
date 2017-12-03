@@ -78,6 +78,8 @@ public class SignUp extends AppCompatActivity {
         String mail = email.getText().toString();
 
         final AppDatabase db = AppDatabase.getDatabaseInstance(getApplicationContext());
+        String DBPath = getApplicationContext().getDatabasePath("Users-database.db").getAbsolutePath();
+        Log.d("DB: ",DBPath);
 
         // TODO : ADD AND CHECK
         if (!uname.isEmpty() && !pass.isEmpty() && !mail.isEmpty()){
